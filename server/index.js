@@ -10,6 +10,9 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(bodyParser.json());
 app.use(cors());
 
+require('./routes/account')(app);
+require('./routes/player')(app);
+
 app.get('/api/test', (req, res, next) => {
     res.end(JSON.stringify('Api works!'));
 });
